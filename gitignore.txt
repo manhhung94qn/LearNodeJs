@@ -4,13 +4,13 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 
-**/**/vscode/
-**/**/.vscode/*
-**/**/.svn/*
-**/**/.vs/*
-**/**/docker/*
-**/**/bin/*
-**/**/obj/*
-**/**/node_modules/*
-**/**/dist/*
+**/*/vscode/
+**/*/.vscode/*
+**/*/.svn/*
+**/*/.vs/*
+**/*/docker/*
+**/*/bin/*
+**/*/obj/*
+**/*/node_modules/*
+**/*/dist/*
 .gitlab-ci.yml
