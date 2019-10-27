@@ -24,4 +24,19 @@ router.get('/xoa', function(req, res, next) {
   res.send("Đã xóa cookie " )
 });
 
+//tao sesstion
+router.get('/taosession', function(req, res, next) {
+  req.session.monan="Bun rieu cua";
+  res.send("Đã tao session" )
+});
+
+router.get('/laysession', function(req, res, next) {
+  res.send("Mon an la: "+req.session.monan )
+});
+
+router.get('/huysession', function(req, res, next) {
+  req.session.destroy();
+  res.send("Da huy session" )
+});
+
 module.exports = router;
