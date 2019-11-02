@@ -5,11 +5,11 @@
 
 
 vscode/
-.vscode/*
-.svn/*
-.vs/*
-bin/*
-obj/*
-node_modules/*
-dist/*
+.vscode/
+.svn/
+.vs/
+bin/
+obj/
+node_modules/
+dist/
 .gitlab-ci.yml
