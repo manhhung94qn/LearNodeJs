@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Id</td>
+      <th>Ten</th>
+      <th>So Dien Thoai</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% data.forEach((item)=>{ %>
+      <tr>
+        <td><%= item._id %></td>
+        <td><%= item.ten %></td>
+        <td><%= item.tuoi %></td>
+        <td>
+          <a type="button" href="xoa/<%= item.id %>" class="btn btn-primary">Xoa</a>
+          <a type="button" href="sua/<%= item.id %>" class="btn btn-primary">Sua</a>
+        </td>
+      </tr>
+    <% }) %>
+
+    <tr>
+  </tbody>
+</table>
+
+  </body>
+</html>
+
