@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title> <%= title  %> </title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="/assets/dropzone/dropzone.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="jumbotron text-center">
+      <h1 class="display-3">Thực hành upload file</h1>
+      <p class="lead">width NodeJs and Multer</p>
+    </div>
+
+    <form action="/uploadfile" class="dropzone" id="my-awesome-dropzone">
+      <div class="fallback">
+        <input name="file" type="file" multiple />
+      </div>
+    </form>
+
+  </div>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="/assets/dropzone/dropzone.js"></script>
+  <script>
+    Dropzone.options.photo = {
+
+      // The camelized version of the ID of the form element
+
+      // The configuration we’ve talked about above
+      paramName: "inputFiles",
+      autoDiscover: false,
+      autoProcessQueue: false,
+      uploadMultiple: true,
+      parallelUploads: 100,
+      maxFiles: 100,
+      dictDefaultMessage: "Bạn có thể kéo ảnh hoặc click để chọn",
+      previewsContainer: "#photo > .modal-body",
+
+      // The setting up of the dropzone
+      init: function () {
+        var myDropzone = this;
+
+        // First change the button to actually tell Dropzone to process the queue.
+        this.element.querySelector("button[type=submit]").addEventListener("click", function (e) {
+          // Make sure that the form isn’t actually being sent.
+          e.preventDefault();
+          e.stopPropagation();
+          myDropzone.processQueue();
+        });
+
+        // Listen to the sendingmultiple event. In this case, it’s the sendingmultiple event instead
+        // of the sending event because uploadMultiple is set to true.
+        this.on("sendingmultiple", function () {
+          // Gets triggered when the form is actually being sent.
+          // Hide the success button or the complete form.
+        });
+        this.on("successmultiple", function (files, response) {
+          location.reload();
+        });
+        this.on("errormultiple", function (files, response) {
+          // Gets triggered when there was an error sending the files.
+          // Maybe show form again, and notify user of error
+        });
+      }
+
+    }
+  </script>
+
+
+</body>
+
+</html>
